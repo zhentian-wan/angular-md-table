@@ -53,7 +53,7 @@ var config = {
                 ON_MDTABLE_TEST: process.env.NODE_ENV === 'test'
             }
         }),
-        new ExtractTextPlugin("tt-ui-md-table.min.css")
+        new ExtractTextPlugin("angular-md-table.min.css")
     ]
 };
 
