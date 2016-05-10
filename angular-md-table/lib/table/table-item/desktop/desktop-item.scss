@@ -1,0 +1,21 @@
+.desktop-service-item {
+
+    background-color: #F1F1F1;
+    .header {
+        color: lightgray;
+    }
+
+    .ttmd-table-item{
+    	white-space: nowrap;
+    	text-overflow: ellipsis; 
+        height: 56px;
+        line-height: 56px;
+        overflow: hidden;
+        min-width: 30px;
+    }
+}
+
+.desktop-service-item-hover{
+    background-color: #F9F9F9;
+}
+

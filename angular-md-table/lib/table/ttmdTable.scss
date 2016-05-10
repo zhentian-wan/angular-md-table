@@ -1,0 +1,93 @@
+.service-list{
+
+
+    text-align: center;
+    font-size: 0.9rem;
+    //color: #989898;
+
+    .list-header{
+        color: #6B6B6B;
+        font-weight: bold;
+        border-bottom: 2px solid #FFF;
+        height: 70px;
+        background-color: #F1F1F1;
+
+        .header-item{
+            height: 70px;
+            line-height: 70px;
+            white-space: nowrap;
+            text-overflow: ellipsis; 
+            overflow: hidden;
+        }
+    }
+
+    .list-title{
+
+        font-weight: bold;
+
+        .md-toolbar-tools{
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+
+    .list-title.accordion-enabled{
+        background: #F9F9F9;
+    }
+
+    .list-title.disactive {
+        span, i:first-child{
+            color: #E88356;
+        }
+    }
+
+    .list-title.accordion-disabled{
+        background: #DEDEDE;
+    }
+
+    .bottomBorder{
+        border-bottom: 2px solid #FFF;
+    }
+
+    .borderTop{
+        border-top: 2px solid #FFF;
+    }
+
+    .borderRight{
+        border-right: 2px #FFF solid;
+    }
+
+    .borderLeft{
+        border-left: 2px #FFF solid;
+    }
+
+    .marginLeftRight{
+        margin: 0 10px 0 10px;
+    }
+
+    .highlight{
+        color: #E88356;
+        font-weight: bold;
+    }
+
+    md-list-item{
+        padding: 0;
+    }
+
+    *:focus{
+        outline: none;
+    }
+
+    .no-data-message{
+        margin-left: 20px;
+    }
+
+    .accordion{
+        float: right;
+        margin: 0 10px 0 10px;
+    }
+}
+
+
+
+
