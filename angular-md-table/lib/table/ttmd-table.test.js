@@ -1,10 +1,10 @@
 export default (ngModule) => {
     describe('Table component', () => {
 
-        let $compile, directiveElem, directiveCtrl, $scope, PaginationModel, state, ttMdTable;
+        let $compile, directiveElem, directiveCtrl, $scope, PaginationModel, state, ttMdTable, $mdMedia;
 
         beforeEach(window.module(ngModule.name));
-        beforeEach(inject(function (_$compile_, _$rootScope_, _PaginationModel_, _$state_, _ttMdTable_) {
+        beforeEach(inject(function (_$compile_, _$rootScope_, _PaginationModel_, _$state_, _ttMdTable_, _$mdMedia_) {
             $compile = _$compile_;
             $scope = _$rootScope_.$new();
 
@@ -12,6 +12,7 @@ export default (ngModule) => {
             spyOn(state, 'go');
             spyOn(state, 'transitionTo');
 
+            $mdMedia = _$mdMedia_;
             PaginationModel = _PaginationModel_;
             ttMdTable = _ttMdTable_;
 

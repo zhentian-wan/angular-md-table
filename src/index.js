@@ -14,12 +14,10 @@ const ngModule = angular.module('app', [
 ]);
 
 require('./config/index.js').default(ngModule);
-require('./submodules').default(ngModule);
-
 if(MODE.ON_MDTABLE_TEST){
-    require( 'angular-mocks/angular-mocks' );
-    require( './test/config.mock' ).default( ngModule );
+    require('angular-mocks/angular-mocks');
 }
+require('./submodules').default(ngModule);
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, [ngModule.name], {});

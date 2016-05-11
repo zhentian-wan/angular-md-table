@@ -11,8 +11,8 @@ export default (ngModule) => {
     require('./ttmdTable.constants.js').default(ngModule);
 
     if (MODE.ON_MDTABLE_TEST) {
-        require('./ttmd-table.test').default(ngModule);
-        require('./ttmdTable.filter.test.js').default(ngModule);
+        // require('./ttmd-table.test').default(ngModule);
+         require('./ttmdTable.filter.test.js').default(ngModule);
        // require('./ttmdTable.provider.test.js').default(ngModule);
     }
 }

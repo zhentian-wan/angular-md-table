@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for angular-md-table\lib\table\ttmdTable.filter.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">angular-md-table/lib/table/</a> ttmdTable.filter.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>16/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.39% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+&nbsp;
+var _keys = require('babel-runtime/core-js/object/keys');
+&nbsp;
+var _keys2 = _interopRequireDefault(_keys);
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? obj : <span class="branch-1 cbranch-no" title="branch not covered" >{ default: obj };</span> }
+&nbsp;
+exports.default = function (ngModule) {
+&nbsp;
+    ngModule.filter('exclude', function () {
+        /*@ngInject*/
+        return function (inputs, filterValues) {
+&nbsp;
+            var wordsToFilter = filterValues || <span class="branch-1 cbranch-no" title="branch not covered" >[''];</span>
+            var keys = (0, _keys2.default)(inputs);
+&nbsp;
+            return keys.reduce(function (acc, curr) {
+                if (wordsToFilter.indexOf(curr) &gt; -1) {
+                    return acc;
+                } else {
+                    acc[curr] = inputs[curr];
+                    return acc;
+                }
+            }, {});
+        };
+    });
+&nbsp;
+    ngModule.filter('pipes', ["$filter", <span class="fstat-no" title="function not covered" >function ($filter) {</span>
+        /*@ngInject*/
+<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >function (inputs, filterValues) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return (0, _keys2.default)(filterValues).reduce(<span class="fstat-no" title="function not covered" >function (acc, curr) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var filterKey = void 0,</span>
+                    targetKeys = void 0,
+                    inputValue = void 0,
+                    symbolValue = void 0,
+                    filteredValue = void 0;
+<span class="cstat-no" title="statement not covered" >                filterKey = curr; </span>//currency filter
+<span class="cstat-no" title="statement not covered" >                targetKeys = filterValues[filterKey].targets; </span>// amount on the inputs
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!targetKeys) {</span>
+<span class="cstat-no" title="statement not covered" >                    return acc;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                targetKeys.forEach(<span class="fstat-no" title="function not covered" >function (targetKey) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    inputValue = acc[targetKey]; </span>//  amount value
+<span class="cstat-no" title="statement not covered" >                    symbolValue = filterValues[filterKey].format;</span>
+<span class="cstat-no" title="statement not covered" >                    if (symbolValue &amp;&amp; symbolValue !== "") {</span>
+<span class="cstat-no" title="statement not covered" >                        filteredValue = $filter(filterKey)(inputValue, symbolValue);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        filteredValue = $filter(filterKey)(inputValue);</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (filteredValue) {</span>
+<span class="cstat-no" title="statement not covered" >                        acc[targetKey] = filteredValue;</span>
+                    }
+                });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return acc;</span>
+            }, inputs);
+        };
+    }]);
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 12 2016 00:00:46 GMT+0300 (FLE Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

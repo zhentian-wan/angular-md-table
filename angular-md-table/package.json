@@ -21,7 +21,7 @@
   "author": "Zhentian Wan <zhentian.wan@tecnotree.com> (Tecnotree Oy)",
   "license": "",
   "devDependencies": {
-    "angular-mocks": "1.4.7",
+    "angular-mocks": "1.5.2",
     "autoprefixer": "6.3.1",
     "babel-core": "6.4.5",
     "babel-loader": "6.2.1",
@@ -55,12 +55,12 @@
     "raw-loader": "0.5.1",
     "rimraf": "2.5.2",
     "sass-loader": "3.1.2",
+    "semantic-release": "^4.3.5",
     "style-loader": "0.13.0",
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-core": "0.6.8",
-    "webpack-dev-server": "1.14.1",
-    "semantic-release": "^4.3.5"
+    "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
     "api-check": "7.5.5",

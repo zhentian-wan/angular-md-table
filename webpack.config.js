@@ -36,7 +36,7 @@ var config = {
             MODE: {
                 production: process.env.NODE_ENV === 'production',
                 dev: process.env.NODE_ENV === 'development',
-                ON_MDTABLE_TEST: process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'upload',
+                ON_MDTABLE_TEST: process.env.NODE_ENV === 'test',
             }
         })
     ],
