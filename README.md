@@ -1,3 +1,7 @@
+![Downloads](https://img.shields.io/npm/dm/angular-md-table.svg)
+![npm](https://img.shields.io/npm/v/angular-md-table.svg)
+![node](https://img.shields.io/node/v/angular-md-table.svg)
+
 # Usage
 
 Add module:
@@ -8,23 +12,88 @@ Add module:
     ]);
 ```
 
-Include file:
+# Install
+
+## npm:
+
+```bash
+npm install angular-md-table --save
+```
+
+Include files:
 
 ```js
 require('angular-md-table/dist/angular-md-table.min.css');
 require('angular-md-table/dist/angular-md-table.min.js');
 ```
 
+## CDN
+
+```bash
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.js
+// or
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.min.js
+
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.min.css
+```
+
 ### Required dependencies
 
 * Angular 1.5.2
 * Angular Material 1.0.2
+* Angular Translate Support
 
 ************************
 
-#DEMO
+# About Adding your translation
 
-## Features
+Inside library, use `{{ value | translate }}` to get the translations.
+
+If you do NOT need translation, you can just pass the string you want to display.
+If you do need translation, you can pass in the json path as when you use angular translation libaray.
+
+For Example:
+
+```json
+{
+ "title": {
+    "greeting": "Hello!"
+ }
+}
+```
+
+```js
+<ttmd-table toolbar="{title: 'title.greeting'}"></ttmd-table>
+```
+
+#### Add missing translations:
+
+In mobile view, there are two buttons needs your provide translations for other languages:
+
+```json
+{
+  "util": {
+    "previous": "",
+    "next": "",
+    "noData": ""
+  }
+}
+```
+
+Default value for those are:
+```json
+{
+  "util": {
+    "previous": "Previous",
+    "next": "Next",
+    "noData": "There is not Data"
+  }
+}
+```
+
+
+
+# Features
 
 ### Desktop view and mobile view
 
@@ -44,16 +113,16 @@ If there is a case you only want to display mobile view, pass in `force-mobile`:
 
 ### Type
 
-To re-render the data efficient, you can have `type`:
-
+If you need to display multi-tables in a page and there is one large object holds all the data, you might consider use `type`
+It can help to change the talbe data inside that large object.
 ```html
-<ttmd-table items="vm.accounts.dueDate" headers="vm.headers" type="dueDate"></ttmd-table>
+<ttmd-table items="vm.accounts.dueDate" headers="vm.headers" type="dueSoon"></ttmd-table>
 ```
 
 The `type` you pass in , will be the `listType` inside js:
 
 ```js
-        this.SomeService.fetchDataAccordingPagination(limit, offset, listType)
+        this.SomeService.fetchDataAccordingPagination(limit, offset)
             .then((res) => {
                 if(listType){
                     this.accounts[listType] = [
@@ -66,7 +135,7 @@ The `type` you pass in , will be the `listType` inside js:
 ### Toolbar
 
 To display the toolbar for the table, passing `tooblar` attr. Which is an object contains `title` and `icon`:
-Here `icon` is Material font icon: string
+Here `icon` is Material font icon.
 
 ```html
 <ttmd-table items="vm.items" headers="vm.headers" toolbar="{
@@ -77,7 +146,7 @@ Here `icon` is Material font icon: string
 
 ### Pagination
 
-The desktop and mobile pagination will be handle differently. To enable pagination, need to pass in `total-number` to tell how many pages in total. `on-page-change` the function need to be called when fetch another page's data.
+To enable pagination, need to pass in `total-number` to tell how many items in total. You can passing the callback function to `on-page-change`, it will push your a `payload` object with `limit, offset, listType`.
 
 ```html
 <ttmd-table items="vm.items" headers="vm.headers" total-number="vm.totalNumber" on-page-change="vm.fetchData(payload)"></ttmd-table>
@@ -88,7 +157,7 @@ The desktop and mobile pagination will be handle differently. To enable paginati
 Able to `sort` data according to the attr, this should be an array, but currently, only work with the first element inside the array.
 
 ```html
-<ttmd-table items="vm.items" headers="vm.headers" sort=['dueDate']"></ttmd-table>
+<ttmd-table items="vm.items" headers="vm.headers" sort="['dueDate']"></ttmd-table>
 ```
 
 ### Exclude
@@ -145,6 +214,17 @@ By default, desktop view show 8 pre-page, mobile view shows 3 pre-page, you can 
 <ttmd-table items="vm.items" headers="vm.headers" limits="{desktop: 5, mobile: 4}"></ttmd-table>
 ```
 
+### Accordion
+
+By default accordion will not be shown. You can enable accordion globally for all tables or individual one. To do that
+you need to pass `enable-accordion=true` & `accordion-state=boolean`.
+
+```html
+<ttmd-table items="vm.items" headers="vm.headers" enable-accordion=true accordion-state=true"></ttmd-table>
+```
+
+`accordion-state=boolean` will show the content.
+
 ### Action
 
 Besides displaying data, you can pass in action. By default, action will be shown as a button
@@ -153,18 +233,18 @@ Besides displaying data, you can pass in action. By default, action will be show
                             <ttmd-table
                                 headers="vm.multiPaymentsHeaders"
                                 items="vm.accounts.all"
-                                total-number="vm.accounts.totals.all"
+                                total-number="vm.accounts.totalNumber.all"
                                 on-page-change="vm.updateMultiPaymentList(payload)"
                                 type="all"
                                 breakpoint="sm"
                                 sort="['dueDate']"
                                 toolbar="{
-                                    title: vm.$translate.instant('paymentComponent.allPendingBills'),
+                                    title: 'paymentComponent.allPendingBills',
                                     icon: 'account_circle'
                                 }">
                                 <ttmd-actions>
                                     <ttmd-action
-                                        text="vm.$translate.instant('paymentComponent.pay')"
+                                        text="paymentComponent.pay"
                                         on-click="vm.pay(payload)"
                                     ></ttmd-action>
                                 </ttmd-actions>
@@ -194,7 +274,7 @@ If there is a case you want to display as a button based on prop `something` is 
 
 ### Row Detail
 
-If you want to display more detail information when click the row, you can add `<ttmd-detail>` to the code, inside `<ttmd-detail>`, passing the directive you want to display. Also add `on-row-click` to the <ttmd-table>
+If you want to display more detail information when click the row, you can add `<ttmd-detail>` to the code, inside `<ttmd-detail>`, passing the directive you want to display. Also add `on-row-click` to the `<ttmd-table>`
 
 ```html
     <ttmd-table
@@ -202,7 +282,7 @@ If you want to display more detail information when click the row, you can add `
         headers="vm.headers"
         on-row-click="vm.someFn(payload)">
         <ttmd-detail>
-            <your_directive selected-invoice="vm.someData"></your_directive>
+            <your_directive your_binding="vm.someData"></your_directive>
         </ttmd-detail>
     </ttmd-table>
 ```
@@ -211,8 +291,25 @@ Inside `someFn()` function, it will return `someData` for `your_directive` to di
 
 ```js
     someFn(payload){
-        this.someData = payload;
+        someService.fetchSomeData(payload)
+            .then( (res) => {
+                this.someData = res;
+            });
     }
+```
+
+### No Data Message
+
+Able to pass `no-data-text` to display the text when there is empty `items` array. Also able to config this in global config.
+
+```html
+<ttmd-table items="[]" headers="vm.headers" no-data-text="There is no data"></ttmd-table>
+```
+
+There is default value set as:
+
+```html
+translate="util.noData" transalte-default="There is no Data"
 ```
 
 ****************
@@ -226,7 +323,11 @@ To do that, go to the `ngModule.config()`, inject `ttmdTableProvider`:
 ngModule.config( (ttmdTableProvider) => {
     ttmdTableProvider.setConfig({
         limits: {desktop: 7, mobile: 4},
-        breakpoint: 'sm'
+        breakpoint: 'sm',
+        message: {
+            noData: "Empty result" // or with Angular-translate: 'path.to.value.noData'
+        },
+        enableAccordion: true
     })
 });
 ```
@@ -235,13 +336,17 @@ ngModule.config( (ttmdTableProvider) => {
 
 ```js
 const _defaultConfigs = {
-            forceMobile: false,
-            breakpoint: 'xs',
-            limits: {
-                desktop: 8,
-                mobile: 3
-            }
-        }
+         forceMobile: false,
+         breakpoint: 'xs',
+         limits: {
+             desktop: 8,
+             mobile: 3
+         },
+         message: {
+             noData: null
+         },
+         enableAccordion: false
+}
 ```
 
 ****************
@@ -311,7 +416,7 @@ vm.limits = {
 
 ```js
 vm.pipes = {
-    target: [],
+    targets: [],
     foramt: string
 }
 ```
@@ -320,7 +425,7 @@ vm.pipes = {
 
 ### type: string (attr on the object) (optional)
 
-### show-as: Array[string]
+### show-as: string
 Default: 'button'
 Available value: 'button', 'text'
 
@@ -329,4 +434,54 @@ Use the attr on the each object
 ```js
 if= "someAttr > 3"; // if someAttr = 5, then action doesn't show, if someAttr = 2, then action will show
 ```
+
+### no-data-text: string (optional)
+
+# Thanks
+
+Thanks for usin my library, currently the code is not on Github, but will do it soon. Then I will be really appreciated to see the _pull request_ or _issues_
+from all of you!
+
+# Author
+
+This library is created and maintained by [Zhentian Wan](https://zhentian.herokuapp.com/) (Tecnotree Oy, Tampere, Finland).
+And this is the *first time* I contribute to open source world! WoW!!
+Fell free to @ me on Twitter @Zhentiw, if anything come to your mind want to discuss with me.
+
+********************
+
+# CHANLE LOG
+
+#Version 1.1.7 (9.5.2016)
+
+## BUG FIXS
+
+  * remove placeholder when action is not defined
+  * fix text-overflow
+  * fix desktop table border mis match
+  * improve the preformence when toggle accordion
+
+#Version 1.1.3 (2.5.2016)
+
+## New Features
+
+    * Add accordion support
+    * Add UMD Support
+
+## BUG FIXS
+
+    * Change the toolbar style
+    * Add lodash
+
+# Version 1.0.8 (30.04.2016)
+
+## New Features
+
+    * Able to config message globaly or for each table when there is no data (tranlsate support).
+
+## BUG FIXS
+
+    * Hide pagination when the item length is 0
+
+
 

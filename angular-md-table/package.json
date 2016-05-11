@@ -1,6 +1,5 @@
 {
   "name": "angular-md-table",
-  "version": "1.1.8",
   "keywords": [
     "angularjs",
     "material design",
@@ -60,10 +59,15 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-core": "0.6.8",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "api-check": "7.5.5",
     "lodash": "4.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhentian-wan/angular-md-table.git"
   }
 }
