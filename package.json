@@ -15,6 +15,7 @@
     "commit": "git-cz",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --profile --colors --display-error-details --display-cached --inline",
     "test": "cross-env NODE_ENV=test karma start",
+    "test:single": "cross-env NODE_ENV=test karma start --single-run",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Zhentian Wan<zhentian.wan@tecnotree.com>",
