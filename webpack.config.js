@@ -10,7 +10,7 @@ var metadata = {
     title: 'Title',
     baseUrl: '/',
     host: 'localhost',
-    port: 3030,
+    port: 3000,
     ENV: ENV
 };
 

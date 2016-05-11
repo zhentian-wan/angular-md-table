@@ -1,9 +1,10 @@
 {
-  "name": "@tt-ui-md-table/tt-ui-md-table",
-  "version": "1.0.1",
+  "name": "angular-md-table",
+  "version": "1.1.8",
   "keywords": [
     "angularjs",
     "material design",
+    "angular-md-table",
     "table",
     "responsive",
     "pagination"
@@ -13,8 +14,8 @@
   "scripts": {
     "build": "npm-run-all --parallel build:*",
     "prebuild": "rimraf dist",
-    "build:umd": "cross-env NODE_ENV=umd webpack --output-filename tt-ui-md-table.umd.js",
-    "build:umd.min": "cross-env NODE_ENV=umd webpack --output-filename tt-ui-md-table.umd.min.js -p",
+    "build:umd": "cross-env NODE_ENV=umd webpack --output-filename angular-md-table.umd.js",
+    "build:umd.min": "cross-env NODE_ENV=umd webpack --output-filename angular-md-table.umd.min.js -p",
     "build:main": "cross-env NODE_ENV=production webpack",
     "test": "cross-env NODE_ENV=test karma start"
   },

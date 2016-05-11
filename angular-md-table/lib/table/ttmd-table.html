@@ -9,7 +9,7 @@
                           ng-if="vm.toolbar" ng-click="vm.shouldShownAccordion() && vm.toggleAccordionState()">
                 <div class="md-toolbar-tools">
                     <i class="material-icons" ng-if="vm.toolbar.icon">{{vm.toolbar.icon}}</i>
-                    <span ng-class="{marginLeftRight: vm.toolbar.icon}" ng-if="vm.toolbar.title">{{vm.toolbar.title | translate}}</span>
+                    <span style="margin: 0 10px 0 10px" ng-if="vm.toolbar.title">{{vm.toolbar.title | translate}}</span>
                 </div>
                 <i class="material-icons" class="accordion" ng-if="vm.shouldShownAccordion() && vm.accordionState">keyboard_arrow_up</i>
                 <i class="material-icons" class="accordion" ng-if="vm.shouldShownAccordion() && !vm.accordionState">keyboard_arrow_down</i>
@@ -42,7 +42,7 @@
 
             <!-- TODO: In config() teach the tranlstaions-->
             <!-- No result -->
-            <md-list-item layout-padding ng-if="(!vm.items || results.length === 0) && vm.accordionState" class="no-data-message">
+            <md-list-item ng-if="(!vm.items || results.length === 0) && vm.accordionState" class="no-data-message">
                 <span ng-if="vm.getDefaultMessage('noData')">{{vm.getDefaultMessage('noData') | translate}}</span>
                 <span ng-if="!vm.getDefaultMessage('noData')" translate="util.noData" translate-default="There are no information"></span>
             </md-list-item>

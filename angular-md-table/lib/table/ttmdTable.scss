@@ -3,21 +3,21 @@
 
     text-align: center;
     font-size: 0.9rem;
+    background-color: white;
     //color: #989898;
 
     .list-header{
         color: #6B6B6B;
         font-weight: bold;
-        border-bottom: 2px solid #FFF;
+        border-bottom: 2px solid #F1F1F1;
         height: 70px;
-        background-color: #F1F1F1;
 
         .header-item{
             height: 70px;
             line-height: 70px;
             white-space: nowrap;
-            text-overflow: ellipsis; 
-            overflow: hidden;
+            text-overflow: ellipsis;
+            overflow: hidden; 
         }
     }
 
@@ -46,23 +46,19 @@
     }
 
     .bottomBorder{
-        border-bottom: 2px solid #FFF;
+        border-bottom: 2px solid #f1f1f1;
     }
 
     .borderTop{
-        border-top: 2px solid #FFF;
+        border-top: 2px solid #f1f1f1;
     }
 
     .borderRight{
-        border-right: 2px #FFF solid;
+        border-right: 2px #f1f1f1 solid;
     }
 
     .borderLeft{
-        border-left: 2px #FFF solid;
-    }
-
-    .marginLeftRight{
-        margin: 0 10px 0 10px;
+        border-left: 2px #f1f1f1 solid;
     }
 
     .highlight{
@@ -79,7 +75,7 @@
     }
 
     .no-data-message{
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
     .accordion{

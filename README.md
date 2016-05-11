@@ -11,8 +11,8 @@ Add module:
 Include file:
 
 ```js
-require('@tt-ui-md-table/dist/tt-ui-md-table.min.css');
-require('@tt-ui-md-table/dist/tt-ui-md-table.min.js');
+require('angular-md-table/dist/angular-md-table.min.css');
+require('angular-md-table/dist/angular-md-table.min.js');
 ```
 
 ### Required dependencies

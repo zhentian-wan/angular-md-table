@@ -13,8 +13,8 @@ var config = {
     context: __dirname,
     output: {
         path: __dirname,
-        filename: 'tt-ui-md-table.min.js',
-        sourceMapFilename: 'tt-ui-md-table.min.js.map'
+        filename: 'angular-md-table.min.js',
+        sourceMapFilename: 'angular-md-table.min.js.map'
     },
     entry: './index.js',
     module: {

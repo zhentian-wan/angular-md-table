@@ -17,14 +17,24 @@ Add module:
 ## npm:
 
 ```bash
-npm install @tt-ui-md-table/tt-ui-md-table --save
+npm install angular-md-table --save
 ```
 
 Include files:
 
 ```js
-require('@tt-ui-md-table/dist/tt-ui-md-table.min.css');
-require('@tt-ui-md-table/dist/tt-ui-md-table.min.js');
+require('angular-md-table/dist/angular-md-table.min.css');
+require('angular-md-table/dist/angular-md-table.min.js');
+```
+
+## CDN
+
+```bash
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.js
+// or
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.min.js
+
+https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.min.css
 ```
 
 ### Required dependencies
@@ -346,7 +356,7 @@ const _defaultConfigs = {
 
 ### items: Array[Object]  (required)
 
-```json
+```js
 [
     {
       "serviceCode": "1-260-865-6252 x638",
@@ -426,5 +436,52 @@ if= "someAttr > 3"; // if someAttr = 5, then action doesn't show, if someAttr = 
 ```
 
 ### no-data-text: string (optional)
+
+# Thanks
+
+Thanks for usin my library, currently the code is not on Github, but will do it soon. Then I will be really appreciated to see the _pull request_ or _issues_
+from all of you!
+
+# Author
+
+This library is created and maintained by [Zhentian Wan](https://zhentian.herokuapp.com/) (Tecnotree Oy, Tampere, Finland).
+And this is the *first time* I contribute to open source world! WoW!!
+Fell free to @ me on Twitter @Zhentiw, if anything come to your mind want to discuss with me.
+
+********************
+
+# CHANLE LOG
+
+#Version 1.1.7 (9.5.2016)
+
+## BUG FIXS
+
+  * remove placeholder when action is not defined
+  * fix text-overflow
+  * fix desktop table border mis match
+  * improve the preformence when toggle accordion
+
+#Version 1.1.3 (2.5.2016)
+
+## New Features
+
+    * Add accordion support
+    * Add UMD Support
+
+## BUG FIXS
+
+    * Change the toolbar style
+    * Add lodash
+
+# Version 1.0.8 (30.04.2016)
+
+## New Features
+
+    * Able to config message globaly or for each table when there is no data (tranlsate support).
+
+## BUG FIXS
+
+    * Hide pagination when the item length is 0
+
 
 

@@ -1,12 +1,10 @@
 .desktop-service-item {
-
-    background-color: #F1F1F1;
     .header {
         color: lightgray;
     }
 
     .ttmd-table-item{
-    	white-space: nowrap;
+        white-space: nowrap;
     	text-overflow: ellipsis; 
         height: 56px;
         line-height: 56px;
@@ -16,6 +14,6 @@
 }
 
 .desktop-service-item-hover{
-    background-color: #F9F9F9;
+    background-color: #F1F1F1;
 }
 
