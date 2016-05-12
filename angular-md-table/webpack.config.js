@@ -59,13 +59,13 @@ var config = {
 
 // Modify the production path to dist folder
 if (process.env.NODE_ENV === 'production') {
-    config.output.path = path.join( __dirname, 'dist' );
+    config.output.path = path.join( __dirname, '../dist' );
     config.plugins.push( new webpack.optimize.UglifyJsPlugin( { output: { comments: false } } ) );
     config.devtool = 'source-map';
 }
 
 if (process.env.NODE_ENV === 'umd') {
-    config.output.path = path.join( __dirname, 'dist' );
+    config.output.path = path.join( __dirname, '../dist' );
     config.output.libraryTarget = 'umd';
     config.output.library = 'TtmdTable';
     config.devtool = 'source-map';

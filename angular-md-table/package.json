@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all --parallel build:*",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf ../dist",
     "build:umd": "cross-env NODE_ENV=umd webpack --output-filename angular-md-table.umd.js",
     "build:umd.min": "cross-env NODE_ENV=umd webpack --output-filename angular-md-table.umd.min.js -p",
     "build:main": "cross-env NODE_ENV=production webpack",
