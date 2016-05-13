@@ -2,7 +2,6 @@
 /angular-md-table/coverage
 /angular-md-table/node_modules
 .idea
-dist
 npm-debug.log
 /.npmrc
 /coverage
