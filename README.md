@@ -1,6 +1,7 @@
 ![Downloads](https://img.shields.io/npm/dm/angular-md-table.svg)
 ![npm](https://img.shields.io/npm/v/angular-md-table.svg)
-![node](https://img.shields.io/node/v/angular-md-table.svg)
+![travis](https://img.shields.io/travis/zhentian-wan/angular-md-table.svg)
+![issues](https://img.shields.io/github/issues/zhentian-wan/angular-md-table.svg)
 
 # Usage
 
