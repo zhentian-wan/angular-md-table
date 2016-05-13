@@ -18,6 +18,7 @@ export default (ngModule) => {
                                 toolbar="{title: 'Accounts'}"
                                 headers="headers"
                                 items="data"
+                                total-number="50"
                                 enable-accordion=true
                                 accordion-state=true
                                 exclude="exclude"

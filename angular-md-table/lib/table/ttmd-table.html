@@ -19,6 +19,8 @@
             <md-list-item layout="row" class="list-header" ng-if="vm.headers && !vm.model.goMobile() && vm.accordionState">
                 <div flex="100" class="header-item borderRight borderTop"
                      ng-class="{borderLeft: $first}"
+                     aria-label="{{header | translate}}"
+                     title="{{header | translate}}"
                      ng-repeat="header in vm.headers track by $index">
                     {{header | translate}}
                 </div>

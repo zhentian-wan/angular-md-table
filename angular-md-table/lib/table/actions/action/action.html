@@ -1,8 +1,8 @@
-<div flex="100" ng-if="vm.text && vm.shouldDisplay()" layout-align="center center" style="text-align: center">
-    <md-button ng-if="vm.showButtonOrText() === 'button'" ng-click=" vm.action($event)" class="md-button md-raised">
+<div flex="100" aria-label="Row Action" ng-if="vm.text && vm.shouldDisplay()" layout-align="center center" style="text-align: center">
+    <md-button aria-label="{{vm.text | translate}}" ng-if="vm.showButtonOrText() === 'button'" ng-click=" vm.action($event)" class="md-button md-raised">
         {{vm.text | translate}}
     </md-button>
-    <span ng-if="vm.showButtonOrText() === 'text' ">
+    <span aria-label="{{vm.text | translate}}" ng-if="vm.showButtonOrText() === 'text' ">
          {{vm.text | translate}}
     </span>
 </div>

@@ -1,9 +1,12 @@
 <div class="desktop-service-item" layout="row" flex="100" layout-align="center center"
      ng-class="{'desktop-service-item-hover': vm.hover}"
      ng-mouseenter="vm.hover = vm.shouldHaveHoverEffet() && true"
-     ng-mouseleave="vm.hover = false">
+     ng-mouseleave="vm.hover = false"
+     aria-label="Click row to see detail">
     <div flex="100" class="borderRight ttmd-table-item"
          ng-class="{borderLeft: $first}"
+         aria-label="{{value}}"
+         title="{{value}}"
          ng-repeat="(key, value) in vm.item
                 | exclude: vm.getExcludedKeys()
                 | pipes: vm.getPipes()
