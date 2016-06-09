@@ -83,13 +83,11 @@ class TtmdTableController {
      */
     showDetail(item, ev) {
         ev.stopPropagation();
-        if (!this.hasTransclude('details')) {
-            this.$log.debug('ttmd-table component: ttmd-detail tag is not defined in your html');
-            return;
-        }
-
         this.onRowClick({payload: item});
-        this.toggleDetail();
+
+        if (this.hasTransclude('details')) {
+            this.toggleDetail();
+        }
     }
 
     /**

@@ -40,7 +40,7 @@ https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.min.css
 ### Required dependencies
 
 * Angular 1.5.2
-* Angular Material 1.0.2
+* Angular Material 1.0.8
 * Angular Translate Support
 
 ************************
@@ -111,26 +111,6 @@ If there is a case you only want to display mobile view, pass in `force-mobile`:
 <ttmd-table items="vm.items" headers="vm.headers" force-mobile="true"></ttmd-table>
 ```
 
-### Type
-
-If you need to display multi-tables in a page and there is one large object holds all the data, you might consider use `type`
-It can help to change the talbe data inside that large object.
-```html
-<ttmd-table items="vm.accounts.dueDate" headers="vm.headers" type="dueSoon"></ttmd-table>
-```
-
-The `type` you pass in , will be the `listType` inside js:
-
-```js
-        this.SomeService.fetchDataAccordingPagination(limit, offset)
-            .then((res) => {
-                if(listType){
-                    this.accounts[listType] = [
-                        ...res
-                    ];
-                }
-            })
-```
 
 ### Toolbar
 
@@ -225,56 +205,60 @@ you need to pass `enable-accordion=true` & `accordion-state=boolean`.
 
 `accordion-state=boolean` will show the content.
 
-### Action
+### Type
 
-Besides displaying data, you can pass in action. By default, action will be shown as a button
-
+If you need to display multi-tables in a page and there is one large object holds all the data, you might consider use `type`
+It can help to change the talbe data inside that large object.
 ```html
-                            <ttmd-table
-                                headers="vm.multiPaymentsHeaders"
-                                items="vm.accounts.all"
-                                total-number="vm.accounts.totalNumber.all"
-                                on-page-change="vm.updateMultiPaymentList(payload)"
-                                type="all"
-                                breakpoint="sm"
-                                sort="['dueDate']"
-                                toolbar="{
-                                    title: 'paymentComponent.allPendingBills',
-                                    icon: 'account_circle'
-                                }">
-                                <ttmd-actions>
-                                    <ttmd-action
-                                        text="paymentComponent.pay"
-                                        on-click="vm.pay(payload)"
-                                    ></ttmd-action>
-                                </ttmd-actions>
-                            </ttmd-table>
+<ttmd-table items="vm.accounts.dueDate" headers="vm.headers" type="dueSoon"></ttmd-table>
 ```
 
-#### Text or Button ?
+The `type` you pass in , will be the `listType` inside js:
 
-If there is a case you want to display as a button based on prop `something` is true, and just display normal text if  `something` is false.
+```js
+        this.SomeService.fetchDataAccordingPagination(limit, offset)
+            .then((res) => {
+                if(listType){
+                    this.accounts[listType] = [
+                        ...res
+                    ];
+                }
+            })
+```
+
+### Action (BreakChange)
+
+Besides displaying data, you can pass in action. You can pass in custom directive
 
 ```html
+    <ttmd-table
+        headers="vm.multiPaymentsHeaders"
+        items="vm.accounts.all"
+        total-number="vm.accounts.totalNumber.all"
+        on-page-change="vm.updateMultiPaymentList(payload)"
+        type="all"
+        breakpoint="sm"
+        sort="['dueDate']"
+        toolbar="{
+            title: 'paymentComponent.allPendingBills',
+            icon: 'account_circle'
+        }">
         <ttmd-actions>
-            <!-- Button -->
             <ttmd-action
-                show-as="button"
-                if="something"
-                text="pay"
-            ></ttmd-action>
-            <!-- Text -->
-            <ttmd-action
-                show-as="text"
-                if="!something"
-                text="Paid"
-            ></ttmd-action>
+                on-click="vm.pay(payload)"
+                if="vm.shouldPay"
+            >
+              <md-button class="md-raised md-warn">Pay</md-button>
+            </ttmd-action>
         </ttmd-actions>
+    </ttmd-table>
 ```
 
 ### Row Detail
 
-If you want to display more detail information when click the row, you can add `<ttmd-detail>` to the code, inside `<ttmd-detail>`, passing the directive you want to display. Also add `on-row-click` to the `<ttmd-table>`
+If you want to display more detail information when click the row, you can add `<ttmd-detail>` to the code, inside `<ttmd-detail>`, passing the directive you want to display. Also add `on-row-click` to the `<ttmd-table>`, 
+
+Also you want to use your own template without using `ttmd-detail`, you can just use `on-row-click` to get `payload` back.
 
 ```html
     <ttmd-table
@@ -378,8 +362,8 @@ const _defaultConfigs = {
 ```js
 // Using angular-translate inside the table component, so you need to give the path to find your value
 vm.headers =[
-  'some.path.to.value',
-  'some.path.to.value2'
+  'some.path.to.value',  // or 'Name'
+  'some.path.to.value2'  // or 'Position'
 ]
 ```
 
@@ -425,10 +409,6 @@ vm.pipes = {
 
 ### type: string (attr on the object) (optional)
 
-### show-as: string
-Default: 'button'
-Available value: 'button', 'text'
-
 ### if: string: expression
 Use the attr on the each object
 ```js
@@ -450,7 +430,12 @@ Fell free to @ me on Twitter @Zhentiw, if anything come to your mind want to dis
 
 ********************
 
-# CHANLE LOG
+# CHANGE LOG
+
+# Break Change 9.6.2016
+    
+    * Support pass in custom directive as action, no long use `show-as` & 'text' bingdings.
+    * `<ttmd-detail>` is no longer necessary when use `on-row-click`
 
 #Version 1.1.7 (9.5.2016)
 

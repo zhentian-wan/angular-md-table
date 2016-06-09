@@ -23,20 +23,21 @@ export default (ngModule) => {
                                 accordion-state=true
                                 exclude="exclude"
                                 pipes="pipes"
+                                on-row-click="onRowClick(payload)"
                                 on-page-change="changepage(payload)"
                             >
                                 <ttmd-actions>
                                     <ttmd-action
-                                        show-as="button"
-                                        text="Pay"
                                         on-click="pay(payload)"
-                                    ></ttmd-action>
+                                    >
+                                        <md-button class="md-raised md-success">OK</md-button>
+                                    </ttmd-action>
                                 </ttmd-actions>
-                                <ttmd-detail>
+                               <!-- <ttmd-detail>
                                     <div >
                                         <h1>This is the detail view</h1>
                                     </div>
-                                </ttmd-detail>
+                                </ttmd-detail>-->
                             </ttmd-table>    
                         `,
                         controller: ($rootScope, $scope, $http) => {

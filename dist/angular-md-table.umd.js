@@ -541,7 +541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 40 */
 /***/ function(module, exports) {
 
-	module.exports = "<div flex=\"100\" aria-label=\"Row Action\" ng-if=\"vm.text && vm.shouldDisplay()\" layout-align=\"center center\" style=\"text-align: center\">\n    <md-button aria-label=\"{{vm.text | translate}}\" ng-if=\"vm.showButtonOrText() === 'button'\" ng-click=\" vm.action($event)\" class=\"md-button md-raised\">\n        {{vm.text | translate}}\n    </md-button>\n    <span aria-label=\"{{vm.text | translate}}\" ng-if=\"vm.showButtonOrText() === 'text' \">\n         {{vm.text | translate}}\n    </span>\n</div>\n\n";
+	module.exports = "<div flex=\"100\" aria-label=\"Row Action\" ng-if=\"vm.shouldDisplay()\" layout-align=\"center center\" ng-transclude ng-click=\"vm.action($event)\" style=\"text-align: center\">\n</div>\n\n";
 
 /***/ },
 /* 41 */
@@ -565,7 +565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 44 */
 /***/ function(module, exports) {
 
-	module.exports = "<div layout=\"row\" class=\"ttmd-table-mobile\"  aria-label=\"Pagination\" layout-fill>\r\n    <md-button layout=\"row\" class=\"md-button md-raised\" layout-fill\r\n               aria-label=\"{{'util.previous'|translate}}\"\r\n               ng-click=\"vm.previous()\" translate=\"util.previous\" translate-default=\"Previous\">\r\n        Previous\r\n    </md-button>\r\n    <md-button layout=\"row\" class=\"md-button md-raised\" layout-fill\r\n               aria-label=\"{{'util.next'|translate}}\"\r\n               ng-click=\"vm.more()\" translate=\"util.next\" translate-default=\"Next\">\r\n        Next\r\n    </md-button>\r\n</div>\r\n\r\n";
+	module.exports = "<div layout=\"row\" class=\"ttmd-table-mobile\"  aria-label=\"Pagination\" layout-fill>\r\n    <md-button layout=\"row\" class=\"md-primary md-raised\" layout-fill\r\n               aria-label=\"{{'util.previous'|translate}}\"\r\n               ng-click=\"vm.previous()\" translate=\"util.previous\" translate-default=\"Previous\">\r\n        Previous\r\n    </md-button>\r\n    <md-button layout=\"row\" class=\"md-primary md-raised\" layout-fill\r\n               aria-label=\"{{'util.next'|translate}}\"\r\n               ng-click=\"vm.more()\" translate=\"util.next\" translate-default=\"Next\">\r\n        Next\r\n    </md-button>\r\n</div>\r\n\r\n";
 
 /***/ },
 /* 45 */
@@ -577,7 +577,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 46 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"desktop-service-item\" layout=\"row\" flex=\"100\" layout-align=\"center center\"\r\n     ng-class=\"{'desktop-service-item-hover': vm.hover}\"\r\n     ng-mouseenter=\"vm.hover = vm.shouldHaveHoverEffet() && true\"\r\n     ng-mouseleave=\"vm.hover = false\"\r\n     aria-label=\"Click row to see detail\">\r\n    <div flex=\"100\" class=\"borderRight ttmd-table-item\"\r\n         ng-class=\"{borderLeft: $first}\"\r\n         aria-label=\"{{value}}\"\r\n         title=\"{{value}}\"\r\n         ng-repeat=\"(key, value) in vm.item\r\n                | exclude: vm.getExcludedKeys()\r\n                | pipes: vm.getPipes()\r\n                track by $index\">\r\n        {{value}}\r\n    </div>\r\n    <span ng-if=\"vm.ItemCtrl.hasTransclude\" ng-transclude ng-class=\"{'flex-100': vm.ItemCtrl.hasTransclude, 'layout-row': vm.ItemCtrl.hasTransclude}\"\r\n          class=\"borderRight ttmd-table-item\" layout-align=\"center center\" style=\"text-align: center;\"></span>\r\n</div>\r\n";
+	module.exports = "<div class=\"desktop-service-item\" layout=\"row\" flex=\"100\" layout-align=\"center center\"\r\n     ng-class=\"{'desktop-service-item-hover': vm.hover}\"\r\n     ng-mouseenter=\"vm.hover = true\"\r\n     ng-mouseleave=\"vm.hover = false\"\r\n     aria-label=\"Click row to see detail\">\r\n    <div flex=\"100\" class=\"borderRight ttmd-table-item\"\r\n         ng-class=\"{borderLeft: $first}\"\r\n         aria-label=\"{{value}}\"\r\n         title=\"{{value}}\"\r\n         ng-repeat=\"(key, value) in vm.item\r\n                | exclude: vm.getExcludedKeys()\r\n                | pipes: vm.getPipes()\r\n                track by $index\">\r\n        {{value}}\r\n    </div>\r\n    <span ng-if=\"vm.ItemCtrl.hasTransclude\" ng-transclude ng-class=\"{'flex-100': vm.ItemCtrl.hasTransclude, 'layout-row': vm.ItemCtrl.hasTransclude}\"\r\n          class=\"borderRight ttmd-table-item\" layout-align=\"center center\" style=\"text-align: center;\"></span>\r\n</div>\r\n";
 
 /***/ },
 /* 47 */
@@ -595,7 +595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 49 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"service-list\" layout-padding>\r\n    <section ng-if=\"!vm.isDetailShown\" ><!-- class=\"animated fadeleft\" -->\r\n        <!-- Content -->\r\n        <md-list layout=\"column\">\r\n            <!-- Toolbar -->\r\n            <md-list-item class=\"list-title\"\r\n                          ng-class=\"{'accordion-enabled': vm.shouldShownAccordion(), 'accordion-disabled': !vm.shouldShownAccordion(),\r\n                                     disactive: vm.shouldShownAccordion() && !vm.accordionState}\"\r\n                          ng-if=\"vm.toolbar\" ng-click=\"vm.shouldShownAccordion() && vm.toggleAccordionState()\">\r\n                <div class=\"md-toolbar-tools\">\r\n                    <i class=\"material-icons\" ng-if=\"vm.toolbar.icon\">{{vm.toolbar.icon}}</i>\r\n                    <span style=\"margin: 0 10px 0 10px\" ng-if=\"vm.toolbar.title\">{{vm.toolbar.title | translate}}</span>\r\n                </div>\r\n                <i class=\"material-icons\" class=\"accordion\" ng-if=\"vm.shouldShownAccordion() && vm.accordionState\">keyboard_arrow_up</i>\r\n                <i class=\"material-icons\" class=\"accordion\" ng-if=\"vm.shouldShownAccordion() && !vm.accordionState\">keyboard_arrow_down</i>\r\n            </md-list-item>\r\n\r\n            <!-- Header -->\r\n            <md-list-item layout=\"row\" class=\"list-header\" ng-if=\"vm.headers && !vm.model.goMobile() && vm.accordionState\">\r\n                <div flex=\"100\" class=\"header-item borderRight borderTop\"\r\n                     ng-class=\"{borderLeft: $first}\"\r\n                     aria-label=\"{{header | translate}}\"\r\n                     title=\"{{header | translate}}\"\r\n                     ng-repeat=\"header in vm.headers track by $index\">\r\n                    {{header | translate}}\r\n                </div>\r\n            </md-list-item>\r\n\r\n            <!-- Each row animated fadeleft-->\r\n            <md-list-item\r\n                class=\"list-row\"\r\n                ng-class=\"{bottomBorder: !vm.model.goMobile(), highlight: vm.shouldHighlightRow(item)}\"\r\n                ng-show=\"vm.items && vm.accordionState\"\r\n                layout=\"row\"\r\n                ng-repeat=\"item in vm.items\r\n                | orderBy: vm.getOrderBy()\r\n                | limitTo: vm.getLimitTo()\r\n                as results track by $index\">\r\n                <ttmd-table-item flex=\"100\" item=\"item\" headers=\"vm.headers\" has-transclude=\"vm.hasTransclude('actions')\"\r\n                                 ng-click=\"vm.hasTransclude('details') && vm.showDetail(item, $event);\">\r\n                    <div ng-if=\"vm.hasTransclude('actions')\" ng-transclude=\"actions\" layout=\"row\" flex=\"100\"></div>\r\n                </ttmd-table-item>\r\n            </md-list-item>\r\n\r\n            <!-- TODO: In config() teach the tranlstaions-->\r\n            <!-- No result -->\r\n            <md-list-item ng-if=\"(!vm.items || results.length === 0) && vm.accordionState\" class=\"no-data-message\">\r\n                <span ng-if=\"vm.getDefaultMessage('noData')\">{{vm.getDefaultMessage('noData') | translate}}</span>\r\n                <span ng-if=\"!vm.getDefaultMessage('noData')\" translate=\"util.noData\" translate-default=\"There are no information\"></span>\r\n            </md-list-item>\r\n        </md-list>\r\n\r\n        <!-- Pagination -->\r\n        <ttmd-pagination\r\n            ng-if=\"vm.shouldShowPagination() && vm.accordionState\"\r\n            model=\"vm.model\"\r\n            list=\"{{vm.type}}\"\r\n            limits=\"vm.limits\"\r\n            total-number=\"vm.totalNumber\"\r\n            cb=\"vm.updateList(model)\"\r\n        ></ttmd-pagination>\r\n    </section>\r\n\r\n    <!-- Row Detail -->\r\n    <ttmd-detail-view ng-if=\"vm.isDetailShown && vm.hasTransclude('details') && vm.accordionState\">\r\n        <div ng-transclude=\"details\"></div>\r\n    </ttmd-detail-view>\r\n</div>\r\n\r\n";
+	module.exports = "<div class=\"service-list\" layout-padding>\r\n    <section ng-if=\"!vm.isDetailShown\" ><!-- class=\"animated fadeleft\" -->\r\n        <!-- Content -->\r\n        <md-list layout=\"column\">\r\n            <!-- Toolbar -->\r\n            <md-list-item class=\"list-title\"\r\n                          ng-class=\"{'accordion-enabled': vm.shouldShownAccordion(), 'accordion-disabled': !vm.shouldShownAccordion(),\r\n                                     disactive: vm.shouldShownAccordion() && !vm.accordionState}\"\r\n                          ng-if=\"vm.toolbar\" ng-click=\"vm.shouldShownAccordion() && vm.toggleAccordionState()\">\r\n                <div class=\"md-toolbar-tools no-padding\">\r\n                    <i class=\"material-icons\" ng-if=\"vm.toolbar.icon\">{{vm.toolbar.icon}}</i>\r\n                    <span style=\"margin: 0 10px 0 10px\" ng-if=\"vm.toolbar.title\">{{vm.toolbar.title | translate}}</span>\r\n                </div>\r\n                <i class=\"material-icons\" class=\"accordion\" ng-if=\"vm.shouldShownAccordion() && vm.accordionState\">keyboard_arrow_up</i>\r\n                <i class=\"material-icons\" class=\"accordion\" ng-if=\"vm.shouldShownAccordion() && !vm.accordionState\">keyboard_arrow_down</i>\r\n            </md-list-item>\r\n\r\n            <!-- Header -->\r\n            <md-list-item layout=\"row\" class=\"list-header no-padding\" ng-if=\"vm.headers && !vm.model.goMobile() && vm.accordionState\">\r\n                <div flex=\"100\" class=\"header-item borderRight borderTop\"\r\n                     ng-class=\"{borderLeft: $first}\"\r\n                     aria-label=\"{{header | translate}}\"\r\n                     title=\"{{header | translate}}\"\r\n                     ng-repeat=\"header in vm.headers track by $index\">\r\n                    {{header | translate}}\r\n                </div>\r\n            </md-list-item>\r\n\r\n            <!-- Each row animated fadeleft-->\r\n            <md-list-item\r\n                class=\"list-row\"\r\n                ng-class=\"{bottomBorder: !vm.model.goMobile(), highlight: vm.shouldHighlightRow(item)}\"\r\n                ng-show=\"vm.items && vm.accordionState\"\r\n                layout=\"row\"\r\n                ng-repeat=\"item in vm.items\r\n                | orderBy: vm.getOrderBy()\r\n                | limitTo: vm.getLimitTo()\r\n                as results track by $index\">\r\n                <ttmd-table-item flex=\"100\" item=\"item\" headers=\"vm.headers\" has-transclude=\"vm.hasTransclude('actions')\"\r\n                                 ng-click=\"vm.showDetail(item, $event);\">\r\n                    <div ng-if=\"vm.hasTransclude('actions')\" ng-transclude=\"actions\" layout=\"row\" flex=\"100\"></div>\r\n                </ttmd-table-item>\r\n            </md-list-item>\r\n\r\n            <!-- TODO: In config() teach the tranlstaions-->\r\n            <!-- No result -->\r\n            <md-list-item ng-if=\"(!vm.items || results.length === 0) && vm.accordionState\" class=\"no-data-message\">\r\n                <span ng-if=\"vm.getDefaultMessage('noData')\">{{vm.getDefaultMessage('noData') | translate}}</span>\r\n                <span ng-if=\"!vm.getDefaultMessage('noData')\" translate=\"util.noData\" translate-default=\"There are no information\"></span>\r\n            </md-list-item>\r\n        </md-list>\r\n\r\n        <!-- Pagination -->\r\n        <ttmd-pagination\r\n            ng-if=\"vm.shouldShowPagination() && vm.accordionState\"\r\n            model=\"vm.model\"\r\n            list=\"{{vm.type}}\"\r\n            limits=\"vm.limits\"\r\n            total-number=\"vm.totalNumber\"\r\n            cb=\"vm.updateList(model)\"\r\n        ></ttmd-pagination>\r\n    </section>\r\n\r\n    <!-- Row Detail -->\r\n    <ttmd-detail-view ng-if=\"vm.isDetailShown && vm.hasTransclude('details') && vm.accordionState\">\r\n        <div ng-transclude=\"details\"></div>\r\n    </ttmd-detail-view>\r\n</div>\r\n\r\n";
 
 /***/ },
 /* 50 */
@@ -15444,45 +15444,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var context = this.ItemCtrl.getSelectedItem();
 	            return getter(context);
 	        }
-	
-	        /**
-	         * Show the 'button' or 'text'
-	         * @returns {*}
-	         */
-	
-	    }, {
-	        key: 'showButtonOrText',
-	        value: function showButtonOrText() {
-	
-	            var ary = ['button', 'text'];
-	
-	            if (this.showAs) {
-	                if (ary.indexOf(this.showAs) > -1) {
-	                    return this.showAs;
-	                } else {
-	                    return ary[0];
-	                }
-	            } else {
-	                return ary[0];
-	            }
-	        }
 	    }]);
 	    return ActionController;
 	}();
 	
 	var ttmdActionComponent = {
 	    bindings: {
-	        text: '@', // The text to display
 	        onClick: '&', // The on-click handler
-	        if: '@', // Based on the expression to control the item show or hide
-	        showAs: '@' // Show as 'button' or 'text'
-	    },
+	        if: '@' },
+	    // Based on the expression to control the item show or hide
 	    require: {
 	        'ItemCtrl': '?^^ttmdTableItem'
 	    },
 	    controller: ActionController,
 	    controllerAs: 'vm',
-	    replace: true,
+	    transclude: true,
 	    template: __webpack_require__(40)
 	};
 	
@@ -16503,13 +16479,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'showDetail',
 	        value: function showDetail(item, ev) {
 	            ev.stopPropagation();
-	            if (!this.hasTransclude('details')) {
-	                this.$log.debug('ttmd-table component: ttmd-detail tag is not defined in your html');
-	                return;
-	            }
-	
 	            this.onRowClick({ payload: item });
-	            this.toggleDetail();
+	
+	            if (this.hasTransclude('details')) {
+	                this.toggleDetail();
+	            }
 	        }
 	
 	        /**

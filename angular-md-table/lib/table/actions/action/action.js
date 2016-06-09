@@ -28,40 +28,19 @@ class ActionController {
         let context = this.ItemCtrl.getSelectedItem();
         return getter(context);
     }
-
-    /**
-     * Show the 'button' or 'text'
-     * @returns {*}
-     */
-    showButtonOrText() {
-
-        const ary = ['button', 'text'];
-
-        if (this.showAs) {
-            if (ary.indexOf(this.showAs) > -1) {
-                return this.showAs;
-            } else {
-                return ary[0];
-            }
-        } else {
-            return ary[0];
-        }
-    }
 }
 
 const ttmdActionComponent = {
     bindings: {
-        text: '@',                  // The text to display
         onClick: '&',               // The on-click handler
         if: '@',                    // Based on the expression to control the item show or hide
-        showAs: '@'                 // Show as 'button' or 'text'
     },
     require: {
         'ItemCtrl': '?^^ttmdTableItem'
     },
     controller: ActionController,
     controllerAs: 'vm',
-    replace: true,
+    transclude: true,
     template: require('./action.html')
 };
 
