@@ -30,11 +30,11 @@ require('angular-md-table/dist/angular-md-table.min.js');
 ## CDN
 
 ```bash
-https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.js
+https://unpkg.com/angular-md-table@latest/dist/angular-md-table.umd.js
 // or
-https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.umd.min.js
+https://unpkg.com/angular-md-table@latest/dist/angular-md-table.umd.min.js
 
-https://npmcdn.com/angular-md-table@latest/dist/angular-md-table.min.css
+https://unpkg.com/angular-md-table@latest/dist/angular-md-table.min.css
 ```
 
 ### Required dependencies
